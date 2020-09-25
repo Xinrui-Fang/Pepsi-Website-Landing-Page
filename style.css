@@ -3,7 +3,7 @@
 *{
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box; /**/
+	box-sizing: border-box; /*Padding + Margin + Content = border size*/
 	font-family: 'Poppins', sans-serif;
 }
 
@@ -110,7 +110,7 @@ header ul li a{
 	position: absolute;
 	left: 50%;
 	bottom: 20px;
-	transform: translateX(-50%);/**/
+	transform: translateX(-50%);/*向左移动自身宽度的百分之五十，在不知道宽度的时候也可以居中*/
 	display: flex;
 }
 
@@ -147,9 +147,100 @@ header ul li a{
 }
 
 .sci li a{
-	display: inline-block;/**/
-	filter: invert(1);/**/
+	display: inline-block;/*可以设置宽高，但是在同一个行内显示*/
+	filter: invert(1);/*CSS滤镜， 反色*/
 	margin: 5px 0;
 	transform: scale(0.6);
+}
 
+@media (max-width: 991px){
+	section{
+		padding: 40px;
+		padding-bottom: 140px;
+	}
+	header{
+		padding: 20px 40px;
+	}
+	header .logo{
+		position: relative;
+		max-width: 60px;
+	}
+	header ul{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #fff;
+		z-index: 1;/**/
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		transition: 0.2s;
+		visibility: hidden;
+		opacity: 0;
+	}
+	header ul.active{
+		visibility: visible;
+		opacity: 1;
+	}
+	header ul li a{
+		display: inline-block;
+		color: #111;
+		font-weight: 400;
+		margin-left: 0;
+		text-decoration: none;
+		font-size: 2em;/**/
+		margin: 10px 0;
+	}
+	header ul li a:hover{
+		color: #ed0223;
+	}
+	.toggleMenu{
+		position: relative;
+		width: 40px;
+		height: 40px;
+		background: url(menu.png);
+		background-position: center;
+		background-size: 30px;
+		background-repeat: no-repeat;
+		z-index: 2;
+		cursor: pointer;
+	}
+	.toggleMenu.active{
+		background: url(close.png);
+		background-position: center;
+		background-size: 25px;
+		background-repeat: no-repeat;
+		filter: invert(1);
+	}
+	.content{
+		flex-direction: column;
+		margin-top: 80px;
+	}
+	.content .textBox{
+		position: relative;
+		max-width: 100%;
+		padding-right: 20px;
+	}
+	.content .textBox h2{
+		font-size: 3em;/**/
+	}
+	.content .textBox a{
+		font-size: 14px;
+		padding: 8px 15px;
+	}
+	.content .imgBox{
+		width: 100%;
+		display: flex;
+		padding-right: 0;
+		margin-top: 50px;
+		justify-content: center;
+	}
+	.content .imgBox img{
+		max-width: 150px;
+	}
+	.thumb li img{
+		max-width: 30px;
+	}
 }

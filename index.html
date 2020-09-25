@@ -2,14 +2,16 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Pepsi Website Landing Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Responsive Pepsi Website Landing Page</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<section class="sec">
 		<header>
 			<a href="#"><img src="logo.png" class="logo"></a>
-			<ul>
+			<div class="toggleMenu" onclick="menuToggle();"></div>
+			<ul class="navigation">
 				<li><a href="#">Home</a></li>
 				<li><a href="#">Products</a></li>
 				<li><a href="#">What's New</a></li>
@@ -40,11 +42,17 @@
 	</section>
 	<script type="text/javascript">
 		function imgSlider(img){
-			document.querySelector('.pepsi').src = img; /**/
+			document.querySelector('.pepsi').src = img; /*选择DOM中的任意一种元素*/
 		}
 		function changeBgColor(color){
 			const sec = document.querySelector('.sec');
 			sec.style.background = color;
+		}
+		function menuToggle(){
+			const toggleMenu = document.querySelector('.toggleMenu');
+			const navigation = document.querySelector('.navigation');
+			toggleMenu.classList.toggle('active');
+			navigation.classList.toggle('active');/**/
 		}
 	</script>
 
